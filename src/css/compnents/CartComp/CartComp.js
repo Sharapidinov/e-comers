@@ -54,7 +54,7 @@ const CartComp = ({it}) => {
                             >
 
                                 {
-                                    it.count * (it.price * rates[currentRate[0]]).toFixed(2)
+                                    (it.count * it.price * rates[currentRate[0]]).toFixed(2)
                                 } {currentRate[1]}
                             </span>
             </td>

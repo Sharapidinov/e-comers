@@ -6,7 +6,7 @@ import {clearCart} from "../redux/productsAction/productAction";
 
 const Cart = () => {
 
-    const {cart} = useSelector(s => s.products)
+    const {cart, rates,currentRate} = useSelector(s => s.products)
     const dispatch = useDispatch()
 
     return (
@@ -54,9 +54,9 @@ const Cart = () => {
                                 Total: &nbsp;
                                 {
                                     Object.values(cart).reduce((acc,it) => {
-                                        return acc + it.price * it.count
+                                        return +(acc + it.price * rates[currentRate[0]] * it.count).toFixed(2)
                                     },0)
-                                } $
+                                } {currentRate[1]}
                             </span>
 
                                 </td>
